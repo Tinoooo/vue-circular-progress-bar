@@ -1,0 +1,63 @@
+$circle-diameter: 150px;
+$border-width-ratio: .2;
+$background-color: #fff;
+$circle-background-color: #ccc;
+$inner-background-color: red; //TODO
+$text-color: white; //TODO
+$font-size: 25px;
+$bar-color: yellow;
+
+.circular-progress-bar {
+
+    *, *:before, *:after {
+        box-sizing: content-box;
+    }
+
+    width: $circle-diameter;
+    height: $circle-diameter;
+    border-radius: 100%;
+    background: $circle-background-color;
+    position: absolute;
+
+    &:after {
+        position: absolute;
+        top: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
+        left: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
+        display: block;
+        content: " ";
+        border-radius: 50%;
+        background-color: $inner-background-color;
+        width: $circle-diameter*(1-$border-width-ratio);
+        height: $circle-diameter*(1-$border-width-ratio);
+    }
+
+    > span {
+        font-size: $font-size;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        color: $text-color;
+        line-height: $circle-diameter;
+        display: block;
+        white-space: nowrap;
+        transition: all .2s ease-out;
+    }
+
+    .bar {
+        height: 100%;
+        width: 100%;
+
+        background-color: $bar-color;
+        border-radius: 50%;
+        position: absolute;
+        clip: rect(0, $circle-diameter/2, $circle-diameter, 0);
+        transform: rotate(200deg);
+    }
+
+    .fill {
+        transform: rotate(180deg) !important;
+    }
+}
