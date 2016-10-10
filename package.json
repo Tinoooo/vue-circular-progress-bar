@@ -1,10 +1,10 @@
 {
-  "name": "circular-progress-bar",
+  "name": "vue-circular-progress-bar",
   "version": "1.0.0",
   "description": "A component to indicate a progress in the form of a donut-shaped bar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tinoooo/circular-progress-bar.git"
+    "url": "https://github.com/Tinoooo/vue-circular-progress-bar.git"
   },
   "main": "src/CircularProgressBar.vue",
   "scripts": {
