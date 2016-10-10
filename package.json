@@ -2,12 +2,15 @@
   "name": "circular-progress-bar",
   "version": "1.0.0",
   "description": "A component to indicate a progress in the form of a donut-shaped bar",
-  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tinoooo/circular-progress-bar.git"
+  },
+  "main": "src/CircularProgressBar.vue",
   "scripts": {
-    "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
     "serve": "http-server -o -s -c 1 -a localhost",
     "dev": "npm-run-all --parallel watchify serve",
-    "build": "cross-env NODE_ENV=production browserify -g envify src/main.js | uglifyjs -c warnings=false -m > dist/build.js"
+    "build": "cross-env NODE_ENV=production browserify -g envify src/index.js | uglifyjs -c warnings=false -m > dist/circular-progress-bar.js"
   },
   "author": "Tino Groteloh",
   "license": "MIT",
