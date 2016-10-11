@@ -1,6 +1,6 @@
 {
   "name": "vue-circular-progress-bar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A component to indicate a progress in the form of a donut-shaped bar",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "author": "Tino Groteloh",
   "license": "MIT",
   "dependencies": {
-    "vue": "^2.0.1"
+    "vue": "^1.0.22"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
