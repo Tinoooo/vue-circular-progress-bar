@@ -1,6 +1,6 @@
 <template>
     <div class="circular-progress-bar">
-        <span><slot>{{progress}}%</slot></span>
+        <span><slot>{{value}}</slot></span>
         <div class="slice" :class="{'greater-than-50':greaterThan50}">
             <div class="bar" :style="{transform: 'rotate(' + progress/100*360 + 'deg)'}"></div>
             <div v-show="greaterThan50" class="bar fill"></div>
@@ -11,38 +11,52 @@
 <script type="text/babel">
     export default {
         props: {
-            progress: {
+            value: {
                 type: Number,
-                required: true,
-                validator(value) {
-                    return value <= 100 && value >= 0;
-                }
+                required: true
+            },
+            max: {
+                type: Number,
+                default: 100
+            },
+            min: {
+                type: Number,
+                default: 0
             }
         },
         computed: {
             greaterThan50() {
                 return this.progress > 50
+            },
+            progress() {
+                return Math.max(Math.min((this.value/(this.max-this.min))*100,100),0);
             }
-        }
+        },
+
     }
 </script>
 
 <style rel="stylesheet/scss" type="text/css" lang="scss">
-    @import "./variables";
+    @import 'mixins';
 
     .circular-progress-bar {
+        @include circular-progress-bar(150px,.2);
+
+        $background-color: #fff !default;
+        $circle-background-color: #cecece !default;
+        $inner-background-color: #fff !default;
+        $text-color: #000 !default;
+        $font-size: 25px !default;
+        $bar-color: #49802c !default;
 
         *, *:before, *:after {
             box-sizing: content-box;
         }
 
-        width: $circle-diameter;
-        height: $circle-diameter;
         border-radius: 100%;
         background: $circle-background-color;
 
         .slice {
-            clip: rect(0, $circle-diameter, $circle-diameter, $circle-diameter/2);
 
             &.greater-than-50 {
                 clip: rect(auto, auto, auto, auto) !important;
@@ -50,14 +64,10 @@
         }
 
         &:after {
-            top: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
-            left: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
             display: block;
             content: " ";
             border-radius: 50%;
             background-color: $inner-background-color;
-            width: $circle-diameter*(1-$border-width-ratio);
-            height: $circle-diameter*(1-$border-width-ratio);
         }
 
         > span {
@@ -67,7 +77,6 @@
             top: 0;
             text-align: center;
             color: $text-color;
-            line-height: $circle-diameter;
             display: block;
             white-space: nowrap;
         }
@@ -75,7 +84,6 @@
         .bar {
             background-color: $bar-color;
             border-radius: 50%;
-            clip: rect(0, $circle-diameter/2, $circle-diameter, 0);
         }
 
         .fill {
@@ -91,5 +99,4 @@
             height: 100%;
         }
     }
-
 </style>

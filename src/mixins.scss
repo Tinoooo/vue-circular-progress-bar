@@ -1,0 +1,24 @@
+@mixin circular-progress-bar($circle-diameter, $border-width-ratio) {
+
+    width: $circle-diameter;
+    height: $circle-diameter;
+
+    .slice {
+      clip: rect(0, $circle-diameter, $circle-diameter, $circle-diameter/2);
+    }
+
+    &:after {
+      top: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
+      left: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
+      width: $circle-diameter*(1-$border-width-ratio);
+      height: $circle-diameter*(1-$border-width-ratio);
+    }
+
+    > span {
+      line-height: $circle-diameter;
+    }
+
+    .bar {
+      clip: rect(0, $circle-diameter/2, $circle-diameter, 0);
+    }
+}

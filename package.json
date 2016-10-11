@@ -10,7 +10,8 @@
   "scripts": {
     "serve": "http-server -o -s -c 1 -a localhost",
     "dev": "npm-run-all --parallel watchify serve",
-    "build": "cross-env NODE_ENV=production browserify -g envify src/index.js | uglifyjs -c warnings=false -m > dist/circular-progress-bar.js"
+    "build": "cross-env NODE_ENV=production browserify -g envify src/CircularProgressBar.vue | uglifyjs -c warnings=false -m > dist/circular-progress-bar.js",
+    "example": "cross-env NODE_ENV=production browserify -g envify example/example.js | uglifyjs -c warnings=false -m > example/example.min.js"
   },
   "author": "Tino Groteloh",
   "license": "MIT",
