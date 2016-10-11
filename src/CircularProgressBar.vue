@@ -2,8 +2,8 @@
     <div class="circular-progress-bar">
         <span><slot>{{value}}</slot></span>
         <div class="slice" :class="{'greater-than-50':greaterThan50}">
-            <div class="bar" :style="{transform: 'rotate(' + progress/100*360 + 'deg)'}"></div>
-            <div v-show="greaterThan50" class="bar fill"></div>
+            <div class="bar" :style="{transform: 'rotate(' + progress/100*360 + 'deg)', backgroundColor: barColor}"></div>
+            <div v-show="greaterThan50" class="bar fill" :style="{backgroundColor: barColor}"></div>
         </div>
     </div>
 </template>
@@ -22,6 +22,10 @@
             min: {
                 type: Number,
                 default: 0
+            },
+            barColor: {
+                type: String,
+                default: '#49802c'
             }
         },
         computed: {
@@ -42,12 +46,11 @@
     .circular-progress-bar {
         @include circular-progress-bar(150px,.2);
 
-        $background-color: #fff !default;
-        $circle-background-color: #cecece !default;
-        $inner-background-color: #fff !default;
-        $text-color: #000 !default;
-        $font-size: 25px !default;
-        $bar-color: #49802c !default;
+        $background-color: #fff;
+        $circle-background-color: #cecece;
+        $inner-background-color: #fff;
+        $text-color: #000;
+        $font-size: 25px;
 
         *, *:before, *:after {
             box-sizing: content-box;
@@ -82,7 +85,6 @@
         }
 
         .bar {
-            background-color: $bar-color;
             border-radius: 50%;
         }
 
