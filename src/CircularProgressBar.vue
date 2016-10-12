@@ -46,7 +46,6 @@
     .circular-progress-bar {
         @include circular-progress-bar(150px,.2);
 
-        $background-color: #fff;
         $circle-background-color: #cecece;
         $inner-background-color: #fff;
         $text-color: #000;
