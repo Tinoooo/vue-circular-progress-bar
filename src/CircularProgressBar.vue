@@ -33,7 +33,7 @@
                 return this.progress > 50;
             },
             progress() {
-                return Math.max(Math.min((this.value/(this.max-this.min))*100,100),0);
+                return Math.max(Math.min((this.value / (this.max - this.min)) * 100, 100), 0);
             }
         }
     }
@@ -43,7 +43,7 @@
     @import 'mixins';
 
     .circular-progress-bar {
-        @include circular-progress-bar(150px,.2);
+        @include circular-progress-bar(150px, .2);
 
         $circle-background-color: #cecece;
         $inner-background-color: #fff;
@@ -57,11 +57,8 @@
         border-radius: 100%;
         background: $circle-background-color;
 
-        .slice {
-
-            &.greater-than-50 {
-                clip: rect(auto, auto, auto, auto) !important;
-            }
+        .slice.greater-than-50 {
+            clip: rect(auto, auto, auto, auto) !important;
         }
 
         &:after {
