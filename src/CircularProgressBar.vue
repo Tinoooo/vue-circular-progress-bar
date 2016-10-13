@@ -30,13 +30,12 @@
         },
         computed: {
             greaterThan50() {
-                return this.progress > 50
+                return this.progress > 50;
             },
             progress() {
                 return Math.max(Math.min((this.value/(this.max-this.min))*100,100),0);
             }
-        },
-
+        }
     }
 </script>
 
