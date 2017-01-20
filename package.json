@@ -13,6 +13,12 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
   },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  },
   "dependencies": {
     "vue": "^2.1.0"
   },
