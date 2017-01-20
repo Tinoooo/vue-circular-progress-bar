@@ -1,6 +1,6 @@
 {
   "name": "vue-circular-progress-bar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple css-only circular progress bar compatible to Vue 2.",
   "author": "Tino Groteloh",
   "license": "MIT",
