@@ -8,10 +8,10 @@
     }
 
     &:after {
-      top: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
-      left: ($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2;
-      width: $circle-diameter*(1-$border-width-ratio);
-      height: $circle-diameter*(1-$border-width-ratio);
+      top: round(($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2);
+      left: round(($circle-diameter - ($circle-diameter*(1-$border-width-ratio)))/2);
+      width: round($circle-diameter*(1-$border-width-ratio));
+      height: round($circle-diameter*(1-$border-width-ratio));
     }
 
     > span {
