@@ -1,2 +1,3 @@
-# vue-circular-progress-bar
-A simple css-only circular progress bar compatible to Vue 2.
+# ⚠️This project is deprecated ⚠️
+use v-progress-circular from [vuetify](https://github.com/vuetifyjs/vuetify) instead
+
